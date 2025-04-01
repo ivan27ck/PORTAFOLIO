@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angel Ivan - Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fuentes e íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        darkAccent: '#111111',
+                        primary: '#64ffda',
+                        primaryDark: '#4ecdc4',
+                        secondary: '#f5b700'
+                    },
+                    fontFamily: {
+                        'outfit': ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s ease-in-out infinite',
+                        'spin-slow': 'spin 20s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+</head>
+<body class="font-outfit text-white overflow-x-hidden">
+    <!-- Navegación fija -->
+    <nav class="fixed top-0 left-0 w-full bg-dark bg-opacity-80 backdrop-blur-md z-50 py-4 px-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="#" class="text-2xl font-semibold text-primary tracking-wider">A<span class="text-white">.</span>Iván</a>
+            
+            <!-- Menú móvil -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <i class="ri-menu-3-line text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Menú de navegación desktop -->
+            <ul class="hidden md:flex items-center space-x-8">
+                <li><a href="#inicio" class="nav-item text-sm uppercase tracking-widest font-light">Inicio</a></li>
+                <li><a href="#experiencia" class="nav-item text-sm uppercase tracking-widest font-light">Experiencia</a></li>
+                <li><a href="#herramientas" class="nav-item text-sm uppercase tracking-widest font-light">Herramientas</a></li>
+                <li><a href="#portfolio" class="nav-item text-sm uppercase tracking-widest font-light">Portfolio</a></li>
+                <li><a href="#contacto" class="nav-item text-sm uppercase tracking-widest font-light">Contacto</a></li>
+                <li>
+                    <a href="#" class="ml-4 px-5 py-2 border border-primary text-primary text-sm rounded hover:bg-primary hover:bg-opacity-10 transition duration-300 uppercase tracking-widest">
+                        Resume
+                    </a>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Menú móvil expandido -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-darkAccent py-4 px-6">
+            <ul class="flex flex-col space-y-4">
+                <li><a href="#inicio" class="block text-sm uppercase tracking-widest font-light">Inicio</a></li>
+                <li><a href="#experiencia" class="block text-sm uppercase tracking-widest font-light">Experiencia</a></li>
+                <li><a href="#herramientas" class="block text-sm uppercase tracking-widest font-light">Herramientas</a></li>
+                <li><a href="#portfolio" class="block text-sm uppercase tracking-widest font-light">Portfolio</a></li>
+                <li><a href="#contacto" class="block text-sm uppercase tracking-widest font-light">Contacto</a></li>
+                <li>
+                    <a href="#" class="inline-block mt-2 px-5 py-2 border border-primary text-primary text-sm rounded hover:bg-primary hover:bg-opacity-10 transition duration-300 uppercase tracking-widest">
+                        Resume
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Inicio -->
+    <div id="inicio-container"></div>
+
+    <script>
+        // Cargar la sección de inicio dinámicamente
+        fetch('./elementos/inicio.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('inicio-container').innerHTML = data);
+    </script>
+
+    <!-- Experiencia -->
+    <div id="experiencia-container"></div>
+
+    <script>
+        // Cargar la sección de inicio dinámicamente
+        fetch('./elementos/experiencia.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('experiencia-container').innerHTML = data);
+    </script>
+
+    <!-- Herramientas/Habilidades -->
+    <div id="herramientas-container"></div>
+
+    <script>
+        fetch('./elementos/herramientas.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('herramientas-container').innerHTML = data);
+    </script>
+
+    <!-- Portfolio -->
+    <div id="portfolio-container"></div>
+
+    <script>
+        fetch('./elementos/portfolio.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('portfolio-container').innerHTML = data);
+    </script>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-24 px-6 bg-darkAccent">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <p class="text-primary uppercase tracking-widest font-light mb-2"><span class="inline-block w-6 h-px bg-primary mr-2 align-middle"></span>CONTACTO<span class="inline-block w-6 h-px bg-primary ml-2 align-middle"></span></p>
+                <h2 class="text-4xl font-bold">Ponte en Contacto</h2>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Formulario -->
+                <div class="bg-dark rounded-lg p-8 shadow-lg">
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-gray-300 mb-2">Nombre</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 bg-darkAccent border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-primary text-white" placeholder="Tu nombre">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-300 mb-2">Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 bg-darkAccent border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-primary text-white" placeholder="tu@email.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-gray-300 mb-2">Asunto</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 bg-darkAccent border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-primary text-white" placeholder="¿En qué puedo ayudarte?">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-300 mb-2">Mensaje</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-2 bg-darkAccent border border-gray-700 rounded focus:outline-none focus:ring-2 focus:ring-primary text-white" placeholder="Escribe tu mensaje aquí..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-8 py-3 bg-primary text-dark font-medium rounded hover:bg-opacity-90 transition duration-300 shadow-lg shadow-primary/20">
+                            Enviar Mensaje
+                        </button>
+                    </form>
+                </div>
+                <!-- Información de contacto -->
+                <div class="flex flex-col justify-center">
+                    <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                        ¿Interesado en trabajar juntos? No dudes en enviarme un mensaje o contactarme directamente a través de mis redes.
+                    </p>
+                    <div class="space-y-6">
+                        <a href="mailto:angelivan@ejemplo.com" class="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors duration-300">
+                            <i class="ri-mail-line text-2xl"></i>
+                            <span>angelivan@ejemplo.com</span>
+                        </a>
+                        <a href="tel:+521234567890" class="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors duration-300">
+                            <i class="ri-phone-line text-2xl"></i>
+                            <span>+52 123 456 7890</span>
+                        </a>
+                        <a href="https://github.com/angelivan" class="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors duration-300">
+                            <i class="ri-github-fill text-2xl"></i>
+                            <span>github.com/angelivan</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    <script>
+        // Cargar el footer dinámicamente
+        fetch('./elementos/footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-container').innerHTML = data);
+    </script>
+
+    <!-- JavaScript para el menú móvil -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

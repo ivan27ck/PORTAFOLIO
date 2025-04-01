@@ -1,0 +1,67 @@
+<section id="inicio" class="relative min-h-screen flex items-center justify-center pt-24 overflow-hidden">
+    <!-- Partículas de fondo -->
+    <div class="absolute inset-0 overflow-hidden opacity-30">
+        <div class="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-primary blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-40 h-40 rounded-full bg-secondary blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+    </div>
+    
+    <div class="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center">
+        <div class="w-full lg:w-3/5 mb-12 lg:mb-0">
+            <p class="text-primary font-light mb-4 tracking-widest"><span class="inline-block w-6 h-px bg-primary mr-2 align-middle"></span>HOLA, SOY</p>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">
+                Angel <span class="text-primary">Iván</span>
+            </h1>
+            <h2 class="text-2xl md:text-3xl font-light text-gray-300 mb-6">Ingeniero Informático</h2>
+            <p class="text-gray-400 text-lg max-w-xl mb-8 leading-relaxed">
+                Experto en desarrollo web, con habilidades en diseño de interfaces, desarrollo frontend y backend, y gestión de bases de datos. Mi pasión es crear soluciones tecnológicas que combinen funcionalidad y estética.
+            </p>
+            
+            <div class="flex flex-wrap gap-4">
+                <a href="#contacto" class="px-8 py-3 bg-primary text-dark font-medium rounded hover:bg-opacity-90 transition duration-300 shadow-lg shadow-primary/20">
+                    Contactar
+                </a>
+                <a href="#portfolio" class="px-8 py-3 border border-primary text-primary font-medium rounded hover:bg-primary hover:bg-opacity-10 transition duration-300">
+                    Ver proyectos
+                </a>
+            </div>
+            
+            <div class="flex space-x-6 mt-12">
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                    <i class="ri-github-fill text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                    <i class="ri-linkedin-box-fill text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                    <i class="ri-twitter-fill text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                    <i class="ri-instagram-fill text-xl"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="w-full lg:w-2/5 flex justify-center relative">
+            <div class="relative w-64 h-64 md:w-80 md:h-80">
+                <div class="absolute inset-0 border-2 border-dashed border-primary rounded-full animate-spin-slow opacity-30"></div>
+                <div class="absolute inset-4 bg-darkAccent rounded-full overflow-hidden p-2 animate-float shadow-2xl">
+                    <img src="images/descarga.png" alt="Perfil" class="rounded-full object-cover w-full h-full">
+                </div>
+                <div class="absolute -right-10 top-0 w-16 h-16 bg-darkAccent rounded-full p-3 shadow-lg animate-float" style="animation-delay: 1.5s;">
+                    <img src="images/python.jpg" alt="Python" class="w-full h-full object-contain">
+                </div>
+                <div class="absolute -left-10 bottom-10 w-16 h-16 bg-darkAccent rounded-full p-3 shadow-lg animate-float" style="animation-delay: 0.5s;">
+                    <img src="images/react.png" alt="React" class="w-full h-full object-contain">
+                </div>
+                <div class="absolute right-10 -bottom-10 w-16 h-16 bg-darkAccent rounded-full p-3 shadow-lg animate-float" style="animation-delay: 1s;">
+                    <img src="images/SQL.png" alt="SQL" class="w-full h-full object-contain">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+        <div class="scroll-indicator"></div>
+        <p class="text-gray-400 text-sm mt-2">Scroll para explorar</p>
+    </div>
+</section>
