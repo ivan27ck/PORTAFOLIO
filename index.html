@@ -104,7 +104,7 @@
         fetch('./elementos/experiencia.html')
             .then(response => response.text())
             .then(data => document.getElementById('experiencia-container').innerHTML = data);
-    </script>
+    </script>   
 
     <!-- Herramientas/Habilidades -->
     <div id="herramientas-container"></div>
@@ -166,7 +166,7 @@
                     <div class="space-y-6">
                         <a href="mailto:angelivan@ejemplo.com" class="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors duration-300">
                             <i class="ri-mail-line text-2xl"></i>
-                            <span>angelivan@ejemplo.com</span>
+                            <span>aguilarivan908@gmail.com</span>
                         </a>
                         <a href="tel:+521234567890" class="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors duration-300">
                             <i class="ri-phone-line text-2xl"></i>
@@ -201,6 +201,151 @@
                 mobileMenu.classList.toggle('hidden');
             });
         });
+    </script>
+
+<!-- modal portfolio-->
+<script>
+    fetch('./elementos/portfolio.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('portfolio-container').innerHTML = data;
+    
+            // Clase Carousel
+            class Carousel {
+                constructor() {
+                    this.images = [];
+                    this.currentIndex = 0;
+                    this.imageElement = document.getElementById('modal-image');
+                    this.prevBtn = document.getElementById('prev-btn');
+                    this.nextBtn = document.getElementById('next-btn');
+                    this.dotsContainer = document.getElementById('carousel-dots');
+                    this.initEventListeners();
+                }
+    
+                setImages(imageArray) {
+                    this.images = imageArray;
+                    this.currentIndex = 0;
+                    this.updateImage();
+                    this.createDots();
+                }
+    
+                createDots() {
+                    this.dotsContainer.innerHTML = '';
+                    this.images.forEach((_, index) => {
+                        const dot = document.createElement('div');
+                        dot.className = `w-2 h-2 rounded-full cursor-pointer ${
+                            index === this.currentIndex ? 'bg-white' : 'bg-gray-500'
+                        }`;
+                        dot.addEventListener('click', () => this.goToImage(index));
+                        this.dotsContainer.appendChild(dot);
+                    });
+                }
+    
+                updateImage() {
+                    this.imageElement.src = this.images[this.currentIndex];
+                    this.updateDots();
+                }
+    
+                updateDots() {
+                    const dots = this.dotsContainer.children;
+                    Array.from(dots).forEach((dot, index) => {
+                        dot.className = `w-2 h-2 rounded-full cursor-pointer ${
+                            index === this.currentIndex ? 'bg-white' : 'bg-gray-500'
+                        }`;
+                    });
+                }
+    
+                goToImage(index) {
+                    this.currentIndex = (index + this.images.length) % this.images.length;
+                    this.updateImage();
+                }
+    
+                initEventListeners() {
+                    this.prevBtn.addEventListener('click', () => {
+                        this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+                        this.updateImage();
+                    });
+    
+                    this.nextBtn.addEventListener('click', () => {
+                        this.currentIndex = (this.currentIndex + 1) % this.images.length;
+                        this.updateImage();
+                    });
+                }
+            }
+    
+            // Inicializar el carrusel
+            const carousel = new Carousel();
+    
+            const modal = document.getElementById('project-modal');
+            const closeModalBtn = document.getElementById('close-modal');
+            const modalContent = {
+                title: document.getElementById('modal-title'),
+                description: document.getElementById('modal-description'),
+                tech: document.getElementById('modal-tech'),
+                github: document.getElementById('modal-github')
+            };
+    
+            // Actualizar projects para incluir array de imágenes
+            const projects = [
+                {
+                    id: 0,
+                    images: ['/images/otto.png', '/images/otto2.png', '/images/otto3.png'],
+                    title: 'Robot ESP32',
+                    description: 'Impresión, ensamblado y programación de un robot interactivo para cursos de robótica básica. Incluye sensores y actuadores controlados por un microcontrolador ESP32.',
+                    tech: ['React', 'C++', 'ESP32'],
+                    github: 'https://github.com/ivan27ck/robot-esp32'
+                },
+                {
+                    id: 1,
+                    images: ['/images/icono-bueno.png', '/images/app2.png', '/images/app3.png'],
+                    title: 'App Móvil',
+                    description: 'Aplicación móvil para monitoreo de datos en tiempo real, con almacenamiento local usando SQLite y sincronización en la nube.',
+                    tech: ['React Native', 'SQLite', 'SQL'],
+                    github: 'https://github.com/ivan27ck/app-movil'
+                },
+                {
+                    id: 2,
+                    images: ['/images/dashboard.png', '/images/image.png', '/images/dashboard4.png'],
+                    title: 'Dashboard Analítico',
+                    description: "Aplicación web completa utilizando NestJS (Back), PostgreSQL (DB), Angular (Front) y AWS (Hosting, capa gratuita).\n\n\n La aplicación extrae automáticamente información del Instituto de Información Estadística y Geográfica de Jalisco (IIEG), la almacena en una base de datos y la muestra en un dashboard interactivo con filtros avanzados.\n\nCaracterísticas principales:\n\n- Automatización de la extracción de datos desde la fuente oficial.\n- API RESTful para consulta de información estructurada.\n- Autenticación con login y logout.\n- Dashboard interactivo con filtros por fecha y tipo de transporte.\n- Visualización de datos mediante una gráfica lineal y métricas clave como ingresos, kilómetros recorridos, pasajeros transportados y unidades en operación.\n- Despliegue en AWS dentro de la capa gratuita.\n\nEste proyecto demuestra habilidades en desarrollo full-stack, manipulación de datos, diseño de interfaces intuitivas y despliegue en la nube.",
+                    tech: ['Angular', 'PostgreSQL', 'NestJS', 'TailwindCSS'],
+                    github: 'https://github.com/ivan27ck/dashboard'
+                }
+            ];
+    
+            // Vincular eventos a "Ver detalles"
+            document.querySelectorAll('.tilt-card .text-primary.hover\\:underline').forEach((link, index) => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const project = projects[index];
+                    
+                    // Configurar el carrusel con las imágenes del proyecto
+                    carousel.setImages(project.images);
+                    
+                    modalContent.title.textContent = project.title;
+                    modalContent.description.innerHTML = project.description.replace(/\n/g, '<br>');
+                    modalContent.tech.innerHTML = project.tech.map(tech => 
+                        `<span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">${tech}</span>`
+                    ).join('');
+                    modalContent.github.href = project.github;
+    
+                    modal.classList.remove('hidden');
+                    modal.classList.add('show');
+                });
+            });
+    
+            // Cerrar modal
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeModal();
+            });
+    
+            function closeModal() {
+                modal.classList.remove('show');
+                modal.classList.add('hidden');
+            }
+        })
+        .catch(error => console.error('Error cargando portfolio.html:', error));
     </script>
 </body>
 </html>

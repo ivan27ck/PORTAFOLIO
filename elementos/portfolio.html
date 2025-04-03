@@ -8,18 +8,18 @@
             <!-- Proyecto 1 -->
             <div class="tilt-card bg-darkAccent rounded-lg overflow-hidden">
                 <div class="h-48 overflow-hidden relative group">
-                    <img src="/images/icono-bueno.png" alt="Sistema de Gestión" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                    <img src="/images/ottoojos.png" alt="Sistema de Gestión" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                     <div class="absolute inset-0 bg-dark opacity-0 group-hover:opacity-75 transition-opacity duration-300 flex items-center justify-center">
                         <i class="ri-code-line text-6xl text-primary"></i>
                     </div>
                 </div>
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-primary mb-2">Sistema de Gestión</h3>
-                    <p class="text-gray-300 mb-4 h-12">Aplicación web para gestión de inventarios con panel administrativo.</p>
+                    <h3 class="text-xl font-bold text-primary mb-2">Robot esp32</h3>
+                    <p class="text-gray-300 mb-4 h-12">Impresión, ensamblado y programacion de robot interactivo para cursos de robótica básica.</p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">React</span>
-                        <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">MySQL</span>
-                        <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">PHP</span>
+                        <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">c++</span>
+                        <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">ESP32</span>
                     </div>
                     <div class="flex justify-between items-center">
                         <a href="#" class="text-primary hover:underline flex items-center">
@@ -45,7 +45,8 @@
                     <p class="text-gray-300 mb-4 h-12">Aplicación móvil para monitoreo de datos en tiempo real.</p>
                     <div class="flex flex-wrap gap-2 mb-6">
                         <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">React Native</span>
-                        <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">Firebase</span>
+                        <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">Sqlite</span>
+                        <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">SQL</span>
                     </div>
                     <div class="flex justify-between items-center">
                         <a href="#" class="text-primary hover:underline flex items-center">
@@ -70,9 +71,10 @@
                     <h3 class="text-xl font-bold text-primary mb-2">Dashboard Analítico</h3>
                     <p class="text-gray-300 mb-4 h-12">Panel de control para visualización de métricas empresariales.</p>
                     <div class="flex flex-wrap gap-2 mb-6">
-                        <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">Python</span>
+                        <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">Angular</span>
                         <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">PostgreSQL</span>
-                        <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">JavaScript</span>
+                        <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">Nestjs</span>
+                        <span class="px-3 py-1 bg-primary bg-opacity-10 text-primary rounded-full text-xs">Tailwindcss</span>
                     </div>
                     <div class="flex justify-between items-center">
                         <a href="#" class="text-primary hover:underline flex items-center">
@@ -86,5 +88,35 @@
                 </div>
             </div>
         </div>
+        <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50">
+            <div class="bg-darkAccent rounded-lg max-w-2xl w-full mx-4 p-6 relative max-h-[90vh] overflow-y-auto">
+                <!-- Botón de cerrar -->
+                <button id="close-modal" class="absolute top-4 right-4 text-gray-300 hover:text-primary">
+                    <i class="ri-close-line text-2xl"></i>
+                </button>
+                <!-- Contenido del modal -->
+                <div id="modal-content" class="relative">
+                    <div class="carousel-container relative w-full h-84">
+                        <img id="modal-image" src="" alt="Proyecto" class="w-full h-full object-cover rounded-lg">
+                        <button id="prev-btn" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-800/50 p-2 rounded-full text-white hover:bg-gray-800/75">
+                            <i class="ri-arrow-left-s-line text-xl"></i>
+                        </button>
+                        <button id="next-btn" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-800/50 p-2 rounded-full text-white hover:bg-gray-800/75">
+                            <i class="ri-arrow-right-s-line text-xl"></i>
+                        </button>
+                        <div id="carousel-dots" class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex gap-2"></div>
+                    </div>
+                    
+                    <h3 id="modal-title" class="text-2xl font-bold text-primary mb-2 mt-4"></h3>
+                    <p id="modal-description" class="text-gray-300 mb-4"></p>
+                    <div id="modal-tech" class="flex flex-wrap gap-2 mb-6"></div>
+                    <a id="modal-github" href="#" target="_blank" class="text-gray-400 hover:text-primary">
+                        <i class="ri-github-fill text-xl mr-2"></i>Ver en GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
+
+
